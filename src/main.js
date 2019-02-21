@@ -189,8 +189,11 @@ stats.addEventListener("click", () => {
   });
 });
 
-/* const search = document.getElementById('search');
-
-search.addEventListener("click", () => {
-  alert('Se esta trabajando en esta sección')
-}); */
+const pokemonJson = () => {
+  fetch ('http://127.0.0.1:5500/src/data/pokemon/pokemon.json')
+  .then(element => element.json())
+  .then(dataPokemonJson => {
+    console.log(dataPokemonJson);
+  })
+}
+pokemonJson();
