@@ -1,4 +1,4 @@
-//Declaración de variables para manipular la data
+/* //Declaración de variables para manipular la data
 const dataPokemon = window.POKEMON.pokemon;
 
 //Declaración para a secciones del html
@@ -177,23 +177,54 @@ stats.addEventListener("click", () => {
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
-              Close
-            </button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+          Close
+          </button>
           </div>
+          
+          </div>
+          </div>
+          </div>`;
+          
+        });
+      }); */
 
-		    </div>
-	    </div>
-    </div>`;
 
-  });
+
+//Declaración para las secciones del html
+const pokemones = document.getElementById('pokemones');
+const theme = document.getElementById('theme');
+
+//Declaración para la pantalla de welcome
+const welcome = document.getElementById('welcome');
+const btnStart = document.getElementById('btnStart');
+const burguer = document.getElementById('burguer');
+
+//Boton de inicio
+btnStart.addEventListener("click", () => {
+  welcome.classList.add('hide');
+  pokemones.classList.remove('hide');
+  theme.classList.remove('hide');
+  burguer.classList.remove('hide');
 });
 
-const pokemonJson = () => {
+
   fetch ('http://127.0.0.1:5500/src/data/pokemon/pokemon.json')
   .then(element => element.json())
-  .then(dataPokemonJson => {
-    console.log(dataPokemonJson);
+  .then(pokemonJson=> {
+    dataJson = pokemonJson.pokemon;
+    for(let i = 0; i<dataJson.length; i++){
+      let poke = dataJson[i]
+
+      pokemones.innerHTML = `<button>${poke.name}`
+  }
   })
-}
-pokemonJson();
+
+
+
+
+
+
+
+
+
