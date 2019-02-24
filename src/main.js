@@ -1,10 +1,11 @@
+google.load('visualization','1.0',{'package': ['corechart']});
 //Declaración para las secciones del html
 const pokemones = document.getElementById('pokemones');
 const theme = document.getElementById('theme');
 
 //Declaración para la pantalla de welcome
 const welcome = document.getElementById('welcome');
-const btnStart = document.getElementById('btnStart');
+const btnStart = document.getElementById('btn-start');
 const burguer = document.getElementById('burguer');
 
 //Boton de inicio
@@ -36,7 +37,7 @@ btnStart.addEventListener("click", () => {
   
         <div class="modal fade" id="pokemon${dataPokemon.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
-          <div class="modal-content bigModal">
+          <div class="modal-content big-modal">
   
             <div class="modal-header">
                 <h2 class="modal-title" id="myModalLabel">${dataPokemon.name}</h2>
@@ -129,7 +130,7 @@ btnStart.addEventListener("click", () => {
 
 
   //Filtrado
-const filterType = document.getElementsByClassName('filterType');
+const filterType = document.getElementsByClassName('filter-type');
 let DataFilter;
 
 for (let i = 0; i < filterType.length; i++) {
@@ -154,50 +155,64 @@ for (let i = 0; i < orderName.length; i++) {
   })
 }
 
-const stats = document.getElementById('stats');
+const stats = document.getElementsByClassName('stats');
 const array = [];
 
-stats.addEventListener("click", () => {
-  DataFilter.forEach(element => {
-    const type = element.type[0];
-    array.push(element.avg_spawns);
-    const pokeStats = window.data.computeStats(array);
-    console.log(pokeStats)
-    pokemones.innerHTML += `
+for(let i = 0; i < stats.length; i++){
+  stats[i].addEventListener("click", () => {
+    const whatIdo = stats[i].id;
+    DataFilter.forEach(element => {
+      const type = element.type[0];
+      array.push(element.avg_spawns);
+      const pokeStats = window.data.computeStats(array, whatIdo);
+      pokemones.innerHTML += `
 
-    <div class="modal fade" id="pokemon" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	    <div class="modal-dialog" role="document">
-		    <div class="modal-content avg">
-          <div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="modal fade" id="average-poke" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content avg">
+              <div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              
+                <h2 class="modal-title">Did you know ...</h2>
+              </div>
           
-            <h2 class="modal-title">Did you know ...</h2>
+              <div class="modal-body">
+              <p>${type} type pokemon on average apreciatte ${pokeStats} times compared to other pokemon </p>
+              </div>
+
+              <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+              Close
+              </button>
+              </div>
+              
+            </div>
           </div>
-      
-          <div class="modal-body">
-          <p>${type} type pokemon on average apreciatte ${pokeStats} times compared to other pokemon </p>
-          </div>
-
-          <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
-          Close
-          </button>
-          </div>
-          
-        </div>
-      </div>
-    </div>`;
-          
-        });
-      });
+        </div>`;
+    });
+  })
+}
 
 
+/* const drawGrafica = () => {
+  const data = new google.visualization.DataTable();
+  data.addColumn('string','Ciudad');
+  data.addColumn('number','Visita');
+  data.addRows(
+    [
+      ['Cd. de México',700],
+      ['Bogota',700],
+      ['Lima',700],
+      ['Perú',700],
+      ['Colombia',700]
+    ]);
 
-
-
-
-
-
-
+    const option =['title':'Visita de mi Web',
+    'width':500;
+    'height':300;];
+    const grafica =  new google.visialization.BarChart(document.getElementById('grafica-poke'));
+    grafica.drawGrafica(data,option);
+}
+google.setOnLoadCallback(drawGrafica); */
