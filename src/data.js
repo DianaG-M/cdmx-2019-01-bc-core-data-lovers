@@ -11,8 +11,7 @@ window.data = {
       return DataFilter.sort((a, b) => (a.name < b.name) ? 1 : -1);
     }
   },
- 
-
+  
   computeStats: (array, whyIdo) => {
     if(whyIdo == 'average-type'){
       const result = array.reduce((previuosVal, actualVal ) =>{

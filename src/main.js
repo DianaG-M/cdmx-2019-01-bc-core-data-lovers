@@ -16,7 +16,6 @@ btnStart.addEventListener("click", () => {
   burguer.classList.remove('hide');
 });
 
-
   fetch ('./data/pokemon/pokemon.json')
   .then(element => element.json())
   .then(pokemonJson=> {
@@ -194,7 +193,6 @@ for(let i = 0; i < stats.length; i++){
     });
   })
 }
-
 
 /* const drawGrafica = () => {
   const data = new google.visualization.DataTable();
