@@ -41,7 +41,7 @@ h2 {
   width: 100%;
 }
 
-#btnStart {
+#btn-start {
   font-size: 4vmin
 }
 
@@ -89,19 +89,19 @@ table {
 /* Terminan estilos de las celdas para la tabla del modal */
 
 /*Fa: Estilos de la imagen de fondo de la pantalla de inicio*/
-.wellcomeBackground {
+.wellcome-background {
   background-image: url("images/pokeball_wellcome.jpg");
   background-size: cover;
   height: 100vh;
 }
 
 /*Fa: Estilo para el logo de Pokemon de la pantalla de inicio*/
-.widthLog {
+.width-log {
   width: 50%;
   padding-top: 3%;
 }
 
-.widthButton {
+.width-button {
   width: 15%;
 }
 
@@ -118,7 +118,7 @@ table {
   width: 100%;
 }
 
-.bigModal {
+.big-modal {
   margin: 0;
   margin-right: auto;
   margin-left: auto;
@@ -131,10 +131,10 @@ table {
   z-index: 1;
 }
 
-.bigModal::after {
+.big-modal::after {
   content: "";
   background: black;
-  opacity: 0.7;
+  opacity: 0.9;
   top: 0;
   left: 0;
   bottom: 0;
@@ -143,14 +143,7 @@ table {
   z-index: -1;
 }
 
-
-
-/*Fa:Tamaño para el logo de la pagina principal*/
-.widthLogData {
-  width: 15%;
-}
-
-.logfixed {
+.log-fixed {
   width: 100%;
   position: fixed;
   border-bottom-left-radius: 25px;
@@ -163,8 +156,6 @@ nav.navbar {
   min-height: 80px;
   font-size: 20px;
 }
-
-
 
 .dark {
   /*Estilo para el boton de pokebola del navbar*/
@@ -251,7 +242,7 @@ nav.navbar {
     width: 100%;
   }
 
-  .bigModal {
+  .big-modal {
     width: 100%;
   }
 
@@ -280,7 +271,7 @@ nav.navbar {
     width: 5%;
   }
 
-  .wellcomeBackground {
+  .wellcome-background {
     background-image: url(./images/pokeball_inicio_mobile.jpg);
     background-size: cover;
     height: 100vh;
@@ -295,12 +286,12 @@ nav.navbar {
     height: 450px;
   }
 
-  .widthLog {
+  .width-log {
     width: 52%;
     padding-top: 4%;
   }
 
-  .widthButton {
+  .width-button {
     margin-top: 3%;
     width: 15%;
   }
@@ -331,7 +322,7 @@ nav.navbar {
     width: 100%;
   }
 
-  .bigModal {
+  .big-modal {
     width: 108%;
   }
 
@@ -360,7 +351,7 @@ nav.navbar {
     width: 5%;
   }
 
-  .wellcomeBackground {
+  .wellcome-background {
     background-image: url(./images/pokeball_mobile01.jpg);
     background-size: cover;
     height: 100vh;
@@ -375,12 +366,12 @@ nav.navbar {
     height: 300px;
   }
 
-  .widthLog {
+  .width-log {
     width: 70%;
     padding-top: 4%;
   }
 
-  .widthButton {
+  .width-button {
     width: 20%;
     height: 80%;
   }
@@ -404,7 +395,7 @@ nav.navbar {
     width: 100%;
   }
 
-  .bigModal {
+  .big-modal {
     width: 108%;
   }
 
@@ -433,7 +424,7 @@ nav.navbar {
     width: 5%;
   }
 
-  .wellcomeBackground {
+  .wellcome-background {
     background-image: url(./images/pokeball_inicio_mobile.jpg);
     background-size: cover;
     height: 100vh;
@@ -448,12 +439,12 @@ nav.navbar {
     height: 230px;
   }
 
-  .widthLog {
+  .width-log {
     width: 70%;
     padding-top: 6%;
   }
 
-  .widthButton {
+  .width-button {
     width: 20%;
   }
 
@@ -461,7 +452,7 @@ nav.navbar {
     font-size: 1em;
   }
 
-  #pokehide {
+  #poke-hide {
     /*Creado para desaparecer "POKEMON" del NavBar*/
     display: none;
   }
@@ -495,7 +486,7 @@ nav.navbar {
     width: 40%
   }
 
-  .bigModal {
+  .big-modal {
     width: 100%;
   }
 
@@ -524,7 +515,7 @@ nav.navbar {
     width: 30%;
   }
 
-  .wellcomeBackground {
+  .wellcome-background {
     background-image: url(./images/pokeball_wellcome.jpg);
     background-size: cover;
     height: 100vh;
@@ -539,12 +530,12 @@ nav.navbar {
     height: 200px;
   }
 
-  .widthLog {
+  .width-log {
     width: 50%;
     padding-top: 4%;
   }
 
-  .widthButton {
+  .width-button {
     width: 10%;
     margin: 0;
   }
@@ -559,7 +550,7 @@ nav.navbar {
     padding-top: 15%;
   }
 
-  #iconBall {
+  #icon-ball {
     /* <----- Arregla la visualizacion del icono del navbar*/
     width: 40px;
   }
@@ -571,7 +562,7 @@ nav.navbar {
 @media (max-width: 640px) {
 
   /* <----- Arregla la visualizacion del icono del navbar*/
-  #iconBall {
+  #icon-ball {
     width: 38px;
   }
 }
@@ -588,7 +579,7 @@ nav.navbar {
     width: 100%;
   }
 
-  .bigModal {
+  .big-modal {
     width: 95%;
   }
 
@@ -644,7 +635,7 @@ nav.navbar {
     width: 10%;
   }
 
-  .wellcomeBackground {
+  .wellcome-background {
     background-image: url(./images/pokeball_inicio_mobile.jpg);
     background-size: cover;
     height: 100vh;
@@ -665,12 +656,12 @@ nav.navbar {
     height: 180px;
   }
 
-  .widthLog {
+  .width-log {
     width: 70%;
     padding-top: 20%;
   }
 
-  .widthButton {
+  .width-button {
     width: 20%;
   }
 
@@ -697,7 +688,7 @@ nav.navbar {
     width: 100%;
   }
 
-  .bigModal {
+  .big-modal {
     width: 108%;
   }
 
@@ -752,7 +743,7 @@ nav.navbar {
     width: 15%;
   }
 
-  .wellcomeBackground {
+  .wellcome-background {
     background-image: url(./images/pokeball_mobile01.jpg);
     background-size: cover;
     height: 100vh;
@@ -772,12 +763,12 @@ nav.navbar {
     height: 230px;
   }
 
-  .widthLog {
+  .width-log {
     width: 95%;
     padding-top: 10%;
   }
 
-  .widthButton {
+  .width-button {
     width: 25%;
   }
 
@@ -808,7 +799,7 @@ nav.navbar {
     padding: 3px;
   }
 
-  .bigModal {
+  .big-modal {
     width: 99%;
   }
 
@@ -864,7 +855,7 @@ nav.navbar {
     width: 5%;
   }
 
-  .wellcomeBackground {
+  .wellcome-background {
     background-image: url(./images/pokeball_mobile01.jpg);
     background-size: cover;
     height: 100vh;
@@ -885,12 +876,12 @@ nav.navbar {
     height: 170px;
   }
 
-  .widthLog {
+  .width-log {
     width: 95%;
     padding-top: 25%;
   }
 
-  .widthButton {
+  .width-button {
     size: auto;
     width: 30%;
   }
