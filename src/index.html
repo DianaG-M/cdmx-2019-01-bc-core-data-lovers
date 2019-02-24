@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -14,18 +19,15 @@
 
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous"> -->
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <!--Agregue mas instrucciones para responsive-->
-  <title>Data Lovers</title>
-  <!--Faby:Este link es de la librería de Bootstrap-->
+  <title>La Libreria Pokemon</title>
 
   <link rel="stylesheet" href="style.css" />
 
 </head>
 
 <body>
-  <header id="burguer" class="hide logfixed">
+
+  <header id="burguer" class="hide log-fixed">
 
     <!--Nav de bootstrap-->
     <nav class="navbar navbar-inverse">
@@ -42,10 +44,10 @@
           <!--<a class="navbar-brand" href="#">POKEMON</a>-->
           <a class="navbar-brand" href="#">
             <button type="submit" class="dark">
-              <img id="iconBall" src="images/pokeball.png">
+              <img id="icon-ball" src="images/pokeball.png">
             </button>
           </a>
-          <a id="pokehide" class="navbar-brand" href="#">POKEMON</a>
+          <a id="poke-hide" class="navbar-brand" href="#">POKEMON</a>
         </div>
 
 
@@ -56,35 +58,43 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                 aria-expanded="false">Filter<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li id="Bug" class="filterType"><a href="#">Bug</a></li>
-                <li id="Dragon" class="filterType"><a href="#">Dragon</a></li>
-                <li id="Electric" class="filterType"><a href="#">Electric</a></li>
-                <li id="Fighting" class="filterType"><a href="#">Fighting</a></li>
-                <li id="Fire" class="filterType"><a href="#">Fire</a></li>
-                <li id="Ghost" class="filterType"><a href="#">Ghost</a></li>
-                <li id="Grass" class="filterType"><a href="#">Grass</a></li>
-                <li id="Ground" class="filterType"><a href="#">Ground</a></li>
-                <li id="Ice" class="filterType"><a href="#">Ice</a></li>
-                <li id="Normal" class="filterType"><a href="#">Normal</a></li>
-                <li id="Poison" class="filterType"><a href="#">Poison</a></li>
-                <li id="Psychic" class="filterType"><a href="#">Psychic</a></li>
-                <li id="Rock" class="filterType"><a href="#">Rock</a></li>
-                <li id="Water" class="filterType"><a href="#">Water</a></li>
+                <li id="Bug" class="filter-type"><a href="#">Bug</a></li>
+                <li id="Dragon" class="filter-type"><a href="#">Dragon</a></li>
+                <li id="Electric" class="filter-type"><a href="#">Electric</a></li>
+                <li id="Fighting" class="filter-type"><a href="#">Fighting</a></li>
+                <li id="Fire" class="filter-type"><a href="#">Fire</a></li>
+                <li id="Ghost" class="filter-type"><a href="#">Ghost</a></li>
+                <li id="Grass" class="filter-type"><a href="#">Grass</a></li>
+                <li id="Ground" class="filter-type"><a href="#">Ground</a></li>
+                <li id="Ice" class="filter-type"><a href="#">Ice</a></li>
+                <li id="Normal" class="filter-type"><a href="#">Normal</a></li>
+                <li id="Poison" class="filter-type"><a href="#">Poison</a></li>
+                <li id="Psychic" class="filter-type"><a href="#">Psychic</a></li>
+                <li id="Rock" class="filter-type"><a href="#">Rock</a></li>
+                <li id="Water" class="filter-type"><a href="#">Water</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                 aria-expanded="false">Sort By:<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a id="ascendente" class="orderName" href="#">upward</a></li>
-                <li><a id="descendente" class="orderName" href="#">downward</a></li>
+                <li><a id="upward" class="orderName" href="#">upward</a></li>
+                <li><a id="downward" class="orderName" href="#">downward</a></li>
               </ul>
             </li>
-            <li><a id="stats" data-toggle="modal" data-target="#pokemon" href="#">Stats</a></li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">Stats:<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a id="average-type" class="stats" data-toggle="modal" data-target="#average-poke" href="#">Stats</a></li>
+                <li><a id="graph" class="stats" href="#">Graph</a> </li>
+              </ul>
+
           </ul>
+          </li>
           <form class="navbar-form" role="search">
             <div class="form-group">
-            <input id="search" type="text" class="form-control" placeholder="Search">
+              <input id="search" type="text" class="form-control" placeholder="e.g. Pikachu">
             </div>
           </form>
           <!---->
@@ -93,16 +103,17 @@
     </nav>
     <!--Cierre de Nav de Bootstrap-->
   </header>
-  <section id="welcome" class="container-fluid wellcomeBackground">
+
+  <section id="welcome" class="conteiner-fluid wellcome-background">
     <!--Faby:Este div contiene la imagen de inicio de pantalla-->
     <div class="row">
 
       <div class="col-md-12 center">
         <!--Fa:Div donde tenemos el logo y boton-->
-        <img class="widthLog" src="./images/International_Pokémon_logo01.png" alt="">
+        <img class="width-log" src="./images/International_Pokémon_logo01.png" alt="">
         <div class="row">
           <!--Fa:Este div crea un nuevo renglón-->
-          <div class="col-md-12"><button id="btnStart" class="btn btn-danger widthButton btn-sm">GO</button></div>
+          <div class="col-md-12"><button id="btn-start" class="btn btn-danger width-button btn-sm">GO</button></div>
         </div>
         <!--cierre de row-->
       </div>
@@ -121,7 +132,6 @@
   <script src="main.js"></script>
 
   <footer></footer>
-  
 </body>
 
 </html>
