@@ -1,4 +1,4 @@
-let google = window.google;
+//let google = window.google;
 
 //Declaración para las secciones del html
 const pokemones = document.getElementById('pokemones');
@@ -194,7 +194,7 @@ let type = [];
         </div>`;
       });
       
-  google.load('visualization','1.0',{'packages': ['corechart']});
+  /* google.load('visualization','1.0',{'packages': ['corechart']});
   const draw = () => {
   const data = new google.visualization.DataTable();
   data.addColumn('string','Ciudad');
@@ -215,3 +215,4 @@ let type = [];
     grafica.draw(data,option);
 }
 google.setOnLoadCallback(draw);
+ */
