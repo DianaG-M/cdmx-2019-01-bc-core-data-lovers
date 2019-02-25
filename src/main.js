@@ -1,4 +1,5 @@
-google.load('visualization','1.0',{'package': ['corechart']});
+let google = window.google;
+
 //Declaración para las secciones del html
 const pokemones = document.getElementById('pokemones');
 const theme = document.getElementById('theme');
@@ -16,7 +17,9 @@ btnStart.addEventListener("click", () => {
   burguer.classList.remove('hide');
 });
 
-  fetch ('./data/pokemon/pokemon.json')
+let dataPokemon = "";
+
+fetch ('./data/pokemon/pokemon.json')
   .then(element => element.json())
   .then(pokemonJson=> {
     dataPokemon = pokemonJson.pokemon;
@@ -35,20 +38,20 @@ btnStart.addEventListener("click", () => {
         </button>
   
         <div class="modal fade" id="pokemon${dataPokemon.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+        <div class="modal-dialog" role="document">
           <div class="modal-content big-modal">
   
             <div class="modal-header">
-                <h2 class="modal-title" id="myModalLabel">${dataPokemon.name}</h2>
+            <h2 class="modal-title" id="myModalLabel">${dataPokemon.name}</h2>
                 </div>
               
               <div class="modal-padd modal-body">
               <table class="details">
               <tr> 
-                    <td class="id" >Type:</td>
+              <td class="id" >Type:</td>
                     <td class="dataid">${dataPokemon.type}</td>
                     <th rowspan="9"><img class="imgModal" src="${dataPokemon.img}"></th>
-                  </tr>
+                    </tr>
   
                   <tr> 
                     <td class="id">Height:</td>
@@ -61,7 +64,7 @@ btnStart.addEventListener("click", () => {
                   </tr> 
                   
                   <tr> 
-                    <td class="id">Candy:</td>
+                  <td class="id">Candy:</td>
                     <td class="dataid">${dataPokemon.candy}</td>
                   </tr> 
                   
@@ -74,30 +77,30 @@ btnStart.addEventListener("click", () => {
                     <td class="id">Spawn Time:</td>
                     <td class="dataid">${dataPokemon.spawn_time}</td>
                   </tr> 
-  
+                  
                   <tr> 
                     <td class="id">Avg Spawns:</td>
                     <td class="dataid">${dataPokemon.avg_spawns}</td>
-                  </tr> 
+                    </tr> 
                   
                   <tr> 
                     <td class="id">Egg:</td>
                     <td class="dataid">${dataPokemon.egg}</td>
-                  </tr> 
+                    </tr> 
                   
                   <tr> 
                     <td class="id">Weaknesses:</td>
                     <td class="dataid">${dataPokemon.weaknesses}</td>
-                  </tr> 
+                    </tr> 
                   
                   <tr>
                     <th colspan="3">
                     <table class="evolution">
-                        <tr>
+                    <tr>
                           <td><button type="button" class="btn btn-success btn-lg btnxsmallPre btnprueba" data-target="#pokemon${dataPokemon.num}">
                           <p class="btnEvPre"> <span class="glyphicon glyphicon-backward" aria-hidden="true"></span> PREVIOUS </p>
                           </button></td>
-  
+                          
                           <td><button type="button" class="btn btn-info btn-lg btnxsmallEv btnprueba">
                           <img class="imgEv" src="${dataPokemon.img}"><br>
                           <p class="btnEv"> <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> ACTUAL <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> </p>
@@ -129,7 +132,7 @@ btnStart.addEventListener("click", () => {
 
 
   //Filtrado
-const filterType = document.getElementsByClassName('filter-type');
+  const filterType = document.getElementsByClassName('filter-type');
 let DataFilter;
 
 for (let i = 0; i < filterType.length; i++) {
@@ -154,31 +157,30 @@ for (let i = 0; i < orderName.length; i++) {
   })
 }
 
-const stats = document.getElementsByClassName('stats');
+const averageType = document.getElementById('average-type');
 const array = [];
+let type = [];
 
-for(let i = 0; i < stats.length; i++){
-  stats[i].addEventListener("click", () => {
-    const whatIdo = stats[i].id;
+  averageType.addEventListener("click", () => {
     DataFilter.forEach(element => {
-      const type = element.type[0];
+      type = element.type[0];
       array.push(element.avg_spawns);
-      const pokeStats = window.data.computeStats(array, whatIdo);
-      pokemones.innerHTML += `
-
-        <div class="modal fade" id="average-poke" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content avg">
-              <div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              
-                <h2 class="modal-title">Did you know ...</h2>
+    });
+    const pokeStats = window.data.computeStats(array);
+    pokemones.innerHTML += `
+    <div class="modal fade" id="average-poke" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content avg">
+    <div>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    <h2 class="modal-title">Did you know ...</h2>
+                
+                <p>${type} type pokemon on average apreciatte ${pokeStats} times compared to other pokemon </p>
               </div>
           
               <div class="modal-body">
-              <p>${type} type pokemon on average apreciatte ${pokeStats} times compared to other pokemon </p>
               </div>
 
               <div class="modal-footer">
@@ -187,14 +189,13 @@ for(let i = 0; i < stats.length; i++){
               </button>
               </div>
               
-            </div>
+              </div>
           </div>
         </div>`;
-    });
-  })
-}
-
-/* const drawGrafica = () => {
+      });
+      
+  google.load('visualization','1.0',{'packages': ['corechart']});
+  const draw = () => {
   const data = new google.visualization.DataTable();
   data.addColumn('string','Ciudad');
   data.addColumn('number','Visita');
@@ -206,11 +207,11 @@ for(let i = 0; i < stats.length; i++){
       ['Perú',700],
       ['Colombia',700]
     ]);
-
-    const option =['title':'Visita de mi Web',
-    'width':500;
-    'height':300;];
-    const grafica =  new google.visialization.BarChart(document.getElementById('grafica-poke'));
-    grafica.drawGrafica(data,option);
+    
+    const option ={'title':'Visita de mi Web',
+    'width':500,
+    'height':300};
+    const grafica =  new google.visualization.BarChart(document.getElementById('pokemones'));
+    grafica.draw(data,option);
 }
-google.setOnLoadCallback(drawGrafica); */
+google.setOnLoadCallback(draw);
