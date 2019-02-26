@@ -5,25 +5,20 @@ window.data = {
   },
 
   sortData: (DataFilter, sortOrder) => {
-    if (sortOrder == "upward") {
-      return DataFilter.sort((a, b) => (a.name > b.name) ? 1 : -1);
-    } else /* if (sortOrder == "descendente")  */ {
-      return DataFilter.sort((a, b) => (a.name < b.name) ? 1 : -1);
+    switch (sortOrder){
+      case 'downward':
+        return DataFilter.sort((a, b) => (a.name > b.name) && -1);
+      case 'upward':
+        return DataFilter.sort((a, b) => (a.name < b.name) && -1);
     }
   },
-  
-  computeStats: (array, whyIdo) => {
-    if(whyIdo == 'average-type'){
+
+  computeStats: (array) => {
       const result = array.reduce((previuosVal, actualVal ) =>{
         return previuosVal + actualVal;
       });
       const average = (result/array.length).toFixed(2);
       return average;
     }
-    else{
-      console.log('Hola');
-    }
-  }
-
-  
+    
 }
