@@ -1,4 +1,4 @@
-//let google = window.google;
+let google = window.google;
 
 //Declaración para las secciones del html
 const pokemones = document.getElementById('pokemones');
@@ -193,26 +193,34 @@ let type = [];
           </div>
         </div>`;
       });
-      
-  /* google.load('visualization','1.0',{'packages': ['corechart']});
+
+  const graph = document.getElementById('graph');
+  google.load('visualization','1.0',{'packages': ['corechart']});
   const draw = () => {
-  const data = new google.visualization.DataTable();
-  data.addColumn('string','Ciudad');
-  data.addColumn('number','Visita');
-  data.addRows(
-    [
-      ['Cd. de México',700],
-      ['Bogota',700],
-      ['Lima',700],
-      ['Perú',700],
-      ['Colombia',700]
-    ]);
+    const data = new google.visualization.DataTable();
+    data.addColumn('string','Pokemon');
+    data.addColumn('number','Edades');
+    data.addRows(
+      [
+        ['17-20',33],
+        ['21-25',43],
+        ['26-30',57],
+        ['31-mas',10]
+      ]);
+
+      const option ={'title':'Edades de las personas que juegan pokemon',
+      'width':1000,
+      'height':500};
+      const grafica =  new google.visualization.PieChart(pokemones);
+      grafica.draw(data,option);
+  
+  google.setOnLoadCallback(draw);
+  }
+
+  graph.addEventListener('click', () => {
+    pokemones.innerHTML = "";
+    draw();
     
-    const option ={'title':'Visita de mi Web',
-    'width':500,
-    'height':300};
-    const grafica =  new google.visualization.BarChart(document.getElementById('pokemones'));
-    grafica.draw(data,option);
-}
-google.setOnLoadCallback(draw);
- */
+  })
+      
+ 

@@ -13,6 +13,36 @@ img {
   width: 70%;
 }
 
+#pokemon-data{
+  position: absolute;
+  left: 7%;
+  top: 14%;
+  width: 12%;
+}
+
+#search{
+  position: absolute;
+  left: 27%;
+  width: 40%;
+  font-size: 20px;
+}
+
+#icon-ball{
+  position: absolute;
+  top: 15%;
+  left: 1%;
+  width: 5%;
+}
+
+li {
+  font-size: 20px;
+}
+
+#main-burger{
+  position: absolute;
+  top: 8%;
+  right: 1%;
+}
 .avg {
   background-color: #1c295a;
   color: white;
@@ -32,8 +62,7 @@ h2 {
   height: 350px;
 }
 
-#pokemones,
-#filtered_out {
+#pokemones {
   padding-top: 7%;
   margin-left: 1.5%;
   flex-wrap: wrap;
@@ -153,8 +182,7 @@ table {
 nav.navbar {
   background-color: black;
   border: 0;
-  min-height: 80px;
-  font-size: 20px;
+  min-height: 15px;
 }
 
 .dark {
@@ -302,8 +330,7 @@ nav.navbar {
     font-size: 2em;
   }
 
-  #pokemones,
-  #filtered_out {
+  #pokemones {
     padding-top: 10%;
   }
 
@@ -317,6 +344,32 @@ nav.navbar {
     color: white;
     font-size: 2em;
   }
+  
+  #icon-ball {
+    width: 20;
+    top: 20%;
+  }
+
+  #pokemon-data{
+    position: absolute;
+    left: 7%;
+    top: 14%;
+    width: 15%;
+  }
+
+  #search{
+    left: 27%;
+    width: 40%;
+  }
+
+  /* #main-list{
+    position: absolute;
+    top: 8%;
+    right: 1%;
+    font-size: 23px;
+  } */
+
+  
 
   .imgModal {
     width: 100%;
@@ -391,6 +444,23 @@ nav.navbar {
     font-size: 2em;
   }
 
+  #search{
+    position: absolute;
+    left: 10%;
+    width: 50%;
+  }
+
+  /* #main-list{
+    position: absolute;
+    top: 8%;
+    right: 1%;
+    font-size: 23px;
+  } */
+
+  li {
+    font-size: 20px;
+  }
+
   .imgModal {
     width: 100%;
   }
@@ -461,9 +531,8 @@ nav.navbar {
     text-align: center;
   }
 
-  #pokemones,
-  #filtered_out {
-    padding-top: 15%;
+  #pokemones {
+    padding-top: 10%;
   }
 
 }
@@ -545,8 +614,7 @@ nav.navbar {
     font-size: 1em;
   }
 
-  #pokemones,
-  #filtered_out {
+  #pokemones{
     padding-top: 15%;
   }
 
@@ -560,10 +628,12 @@ nav.navbar {
 /* <----Cierre del @Media de 640 y 360px*/
 
 @media (max-width: 640px) {
-
-  /* <----- Arregla la visualizacion del icono del navbar*/
   #icon-ball {
     width: 38px;
+  }
+  #search{
+    left: 15%;
+    width: 70%;
   }
 }
 
@@ -571,6 +641,10 @@ nav.navbar {
   h2 {
     color: white;
     font-size: 2em;
+  }
+
+  #search{
+    width: 60%;
   }
 
   .imgModal {
@@ -645,10 +719,8 @@ nav.navbar {
     width: 100%;
   }
 
-  #pokemones,
-  #filtered_out {
-    /*Agregue*/
-    padding-top: 20%;
+  #pokemones {
+    padding-top: 23%;
   }
 
   .btnPokemon {
@@ -692,6 +764,10 @@ nav.navbar {
     width: 108%;
   }
 
+  #search{
+    width: 60%;
+  }
+
   .details {
     color: white;
     font-size: 0.8em;
@@ -732,7 +808,6 @@ nav.navbar {
   .evolution {
     border-radius: 10px;
     background: rgba(128, 128, 128, 0.651);
-
   }
 
   .id {
@@ -753,10 +828,8 @@ nav.navbar {
     width: 80%;
   }
 
-  #pokemones,
-  #filtered_out {
-    /*Agregue*/
-    padding-top: 24%;
+  #pokemones{
+    padding-top: 27%;
   }
 
   .btnPokemon {
@@ -798,6 +871,10 @@ nav.navbar {
 
   .modal-padd {
     padding: 3px;
+  }
+
+  #search{
+    width: 50%;
   }
 
   .big-modal {
@@ -866,10 +943,9 @@ nav.navbar {
     width: 80%;
   }
 
-  #pokemones,
-  #filtered_out {
+  #pokemones{
     /*Agregue*/
-    padding-top: 27%;
+    padding-top: 30%;
   }
 
   .btnPokemon {
